@@ -3,7 +3,7 @@
 $(document).delegate('#Home', 'pageinit', function() {
   document.getElementById("Copyright").innerHTML = MakeLogo("Stop", "Watch", true, true) + "<br>&copy; " + YearInRomanNumerals() + " The Inchoate Company";
  $("#Copyright").bind("click", function(event, ui) {
-  $.mobile.changePage( "#StpWatch", {role: "page", transition: 'flip'} );
+  $.mobile.changePage( "#Inchoate", {role: "page", transition: 'flip'} );
  });
 });
 
@@ -18,7 +18,7 @@ $(document).delegate('#StpWatch', 'pageinit', function() {
  $("#SWReset").bind("click", function(event, ui) {
   ResetClicked();
  });
-  
+
  $( "#SWStart" ).bind( "click", function(event, ui) {
    StartClicked();
  });
@@ -62,6 +62,16 @@ $(document).delegate('#Tip', 'pageinit', function() {
  $("#TipRound").bind( "change", function(event, ui) {
   UpdateTip();
 });
+});
+
+$(document).delegate('#Inchoate', 'pageinit', function() {
+ document.getElementById("InchoateLogo").innerHTML = MakeLogo("Inchoate", "Co", false, false);
+ $("#InchoateLogo").bind("click", function(event, ui) {
+  $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
+ });
+ $("#InchoateMenu").bind("click", function(event, ui) {
+  $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
+ });
 });
 
 // General Functions
@@ -260,7 +270,7 @@ function UpdateBP() {
   "1.032258065", "1.028482143", "1.038395501", "0.996442223", "1.016402765", // 2005
   "1.031565286", "1.020694499", "1.014647595", "1.021218508" // 2010
   );
-  
+
   var nYearOffset = nThisYear - aCPIYears.length;
   document.getElementById('CPIStartingAmount').value = document.getElementById('CPIStartingAmount').value.replace("$", "");
   if (document.getElementById('CPIStartYear').value == document.getElementById('CPIEndYear').value) {
@@ -287,7 +297,7 @@ function UpdateBP() {
     document.getElementById('CPITransLine').innerHTML = 'has the same buying power in';
   else
     document.getElementById('CPITransLine').innerHTML = 'had the same buying power in';
-  
+
   document.getElementById('CPIStartingAmount').value = "$" + document.getElementById('CPIStartingAmount').value;
 }
 
@@ -296,7 +306,7 @@ function UpdateBP() {
 // Start of FV Functions
 function ChangeFVCalc() {
   ChangeFVCalc.sFVCalcType = document.getElementById('FVCalcType').value;
-  
+
   if ('Find Future Value' == ChangeFVCalc.sFVCalcType) {
     document.getElementById('FVFutureValue').readOnly = true;
     document.getElementById('FVPresentValue').readOnly = false;
@@ -428,7 +438,7 @@ function UpdateTip() {
     sTip += sExtra;
     sTipTotal = Number(sTipBill) + Number(sTip);
   }
-  
+
   document.getElementById('TipTip').innerHTML = 'Tip = $' + sTip.toFixed(2);
   document.getElementById('TipTotal').innerHTML = 'Total = $' + sTipTotal.toFixed(2);
 }
