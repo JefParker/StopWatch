@@ -42,7 +42,7 @@ margin-top: 2em;
 }
 
 .TitleText {
-font-family: "Habibi", "Times New Roman", "Bernhard Modern Roman", "Adobe Caslon Pro", Times, Georgia, serif;
+font-family: Habibi, TimesNewRoman, 'Times New Roman', Times, Georgia, serif;
 color: white;
 text-shadow: 2px 2px 4px #000000;
 font-size: 225%;
