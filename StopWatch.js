@@ -459,10 +459,11 @@ function UpdateTip() {
 // Start of Zip functions
 function handleFileSelect(evt) {
   var files = evt.target.files; // FileList object
-
+  ClickZipBtn.FilesToZip = evt.target.files;
   // files is a FileList of File objects. List some properties.
   var sFileList = "<input type='button' id='ZipButton' value='Zip' style='float: right;' />";
   for (var i = 0, f; f = files[i]; i++) {
+    ClickZipBtn.FileNamesToZip[i] = escape(f.name);
     sFileList += '- <b>' + escape(f.name) + '</b><br>';
   }
   document.getElementById('ZipList').innerHTML = sFileList;
@@ -470,7 +471,13 @@ function handleFileSelect(evt) {
 }
 
 function ClickZipBtn() {
- alertify.alert('Clicked!');
+ var zip = new JSZip();
+ for (var i = 0; i < ClickZipBtn.FileNamesToZip.length; i++)
+   zip.file(ClickZipBtn.FileNamesToZip[i], "Hello World\n");
+ var content = zip.generate({type:"blob"});
+ // see FileSaver.js
+ saveAs(content, "SimpleZip.zip");
+
  document.getElementById('ZipButton').removeEventListener('click', ClickZipBtn, false);
  document.getElementById('ZipList').innerHTML = '';
  document.getElementById('ZipFiles').value = '';
