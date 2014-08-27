@@ -17,9 +17,10 @@
 <body>
  <!-- Start of home page -->
  <div data-role='page' id='Home' data-theme='D' data-title='Welcome - StopWatch'>
-   <p class='Copy' style='font-size: 80%; text-align: center;'><a href='#StpWatch' data-transition='flip'>StopWatch</a></p>
-   <p class='Copy' style='font-size: 80%; text-align: center;'>Calculators:<br>
-    <a href='#CPI' data-transition='flip'>CPI</a> &nbsp;<a href='#FV' data-transition='flip'>Future-Value</a> &nbsp;<a href='#Tip' data-transition='flip'>Tip</a></p>
+   <p class='Copy' style='font-size: 80%; text-align: center;'><a href='#StpWatch' data-transition='flip'>StopWatch</a><br>
+    <a href='#CPI' data-transition='flip'>CPI</a> &nbsp;<a href='#FV' data-transition='flip'>Future-Value</a> &nbsp;<a href='#Tip' data-transition='flip'>Tip</a><br>
+    <a href='#SimpleZip' data-transition='flip'>Simple Zip</a>
+    </p>
    <div id='Copyright' class='Copy' style='font-size: 75%; text-align: center;'></div>
  </div><!-- / home page -->
 
@@ -123,7 +124,7 @@
  </div><!-- / Tip page -->
 
 <!-- Start of Inchoate page -->
-<div data-role='page' id='Inchoate' data-theme='D' data-title='Inchoate - StopWatch'>
+<div data-role='page' id='Inchoate' data-theme='D' data-title='Inchoate - About'>
 <div id="InchoateControls" style="width: 90%; margin-right: auto; margin-left: auto; text-align: center;">
 <div id='InchoateMenu' class='Copy' style='font-size: 80%; text-align: right; float: right; margin-top: 3px;'>Menu</div>
 <div id='InchoateLogo' style='text-align: left; margin-top: 0px; margin-top: 3px; font-size: 75%;'></div>
@@ -134,6 +135,16 @@
 </div>
 </div> <!-- / InchoateControls -->
 </div><!-- / Inchoate page -->
+
+<!-- Start of SimpleZip page -->
+<div data-role='page' id='SimpleZip' data-theme='D' data-title='Inchoate - Simple Zip'>
+<div id="SimpleZipControls" style="width: 90%; margin-right: auto; margin-left: auto; text-align: center;">
+<div id='SimpleZipMenu' class='Copy' style='font-size: 80%; text-align: right; float: right; margin-top: 3px;'>Menu</div>
+<div id='SimpleZipLogo' style='text-align: left; margin-top: 0px; margin-top: 3px; font-size: 75%;'></div>
+<input type="file" id="ZipFiles" name="ZipFiles[]" multiple class='Copy' style='font-size: 80%;' />
+<div id="ZipList" class='Copy' style='font-size: 80%; text-align: left; width: 100%;'></div>
+</div> <!-- / SimpleZipControls -->
+</div><!-- / SimpleZip page -->
 
 
 </body>

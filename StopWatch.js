@@ -74,6 +74,17 @@ $(document).delegate('#Inchoate', 'pageinit', function() {
  });
 });
 
+$(document).delegate('#SimpleZip', 'pageinit', function() {
+ document.getElementById('ZipFiles').addEventListener('change', handleFileSelect, false);
+ document.getElementById("SimpleZipLogo").innerHTML = MakeLogo("Simple", "Zip", false, false);
+ $("#SimpleZipLogo").bind("click", function(event, ui) {
+  $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
+ });
+ $("#SimpleZipMenu").bind("click", function(event, ui) {
+  $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
+ });
+});
+
 // General Functions
 
 function shuffle(o) {
@@ -444,3 +455,24 @@ function UpdateTip() {
 }
 
 // End of Tip Functions
+
+// Start of Zip functions
+function handleFileSelect(evt) {
+  var files = evt.target.files; // FileList object
+
+  // files is a FileList of File objects. List some properties.
+  var sFileList = "<input type='button' id='ZipButton' value='Zip' style='float: right;' />";
+  for (var i = 0, f; f = files[i]; i++) {
+    sFileList += '- <b>' + escape(f.name) + '</b><br>';
+  }
+  document.getElementById('ZipList').innerHTML = sFileList;
+  document.getElementById('ZipButton').addEventListener('click', ClickZipBtn, false);
+}
+
+function ClickZipBtn() {
+ alertify.alert('Clicked!');
+ document.getElementById('ZipButton').removeEventListener('click', ClickZipBtn, false);
+ document.getElementById('ZipList').innerHTML = '';
+ document.getElementById('ZipFiles').value = '';
+}
+// End of Zip functions
