@@ -459,8 +459,8 @@ function UpdateTip() {
 // Start of Zip functions
 function handleFileSelect(evt) {
   var files = evt.target.files; // FileList object
-  ClickZipBtn.FilesToZip = evt.target.files;
-  // files is a FileList of File objects. List some properties.
+  ClickZipBtn.FileNamesToZip = [];
+  // files is a FileList of File objects
   var sFileList = "<input type='button' id='ZipButton' value='Zip' style='float: right;' />";
   for (var i = 0, f; f = files[i]; i++) {
     ClickZipBtn.FileNamesToZip[i] = escape(f.name);
@@ -472,8 +472,10 @@ function handleFileSelect(evt) {
 
 function ClickZipBtn() {
  var zip = new JSZip();
- for (var i = 0; i < ClickZipBtn.FileNamesToZip.length; i++)
-   zip.file(ClickZipBtn.FileNamesToZip[i], "Hello World\n");
+ for (var i = 0; i < ClickZipBtn.FileNamesToZip.length; i++) {
+  zip.file(ClickZipBtn.FileNamesToZip[1]);
+ }
+
  var content = zip.generate({type:"blob"});
  // see FileSaver.js
  saveAs(content, "SimpleZip.zip");
