@@ -493,7 +493,7 @@ function LoadAFile(nEntry) {
 function ClickZipBtn() {
  var zip = new JSZip();
  for (var i = 0; i < ClickZipBtn.Files.length; i++) {
-  zip.file(ClickZipBtn.Files[i].FileObj.name, ClickZipBtn.Files[i].Data);
+  zip.file(ClickZipBtn.Files[i].FileObj.name, ClickZipBtn.Files[i].Data, {compression: 'DEFLATE'});
  }
 
  var content = zip.generate({type:"blob"});
