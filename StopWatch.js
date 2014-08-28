@@ -491,15 +491,15 @@ function LoadAFile(nEntry) {
 }
 
 function ClickZipBtn() {
+ document.getElementById('ZipButton').style.display = 'none';
  var zip = new JSZip();
  for (var i = 0; i < ClickZipBtn.Files.length; i++) {
+  document.getElementById("ZipFile" + escape(i)).style.color = 'blue';
   zip.file(ClickZipBtn.Files[i].FileObj.name, ClickZipBtn.Files[i].Data, {compression: 'DEFLATE'});
  }
-
  var content = zip.generate({type:"blob"});
  // see FileSaver.js
  saveAs(content, "SimpleZip.zip");
-
  document.getElementById('ZipButton').removeEventListener('click', ClickZipBtn, false);
  document.getElementById('ZipList').innerHTML = '';
  document.getElementById('ZipFiles').value = '';
