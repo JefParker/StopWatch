@@ -8,6 +8,7 @@
   "offline_enabled": true,
   "permissions": [
     "unlimitedStorage",
+    "fileSystem",
     "identity"
   ],
   "icons": {

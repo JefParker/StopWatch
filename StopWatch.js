@@ -459,12 +459,27 @@ function UpdateTip() {
 // Start of Zip functions
 function handleFileSelect(evt) {
   var files = evt.target.files; // FileList object
+  ClickZipBtn.FilesToZip = [];
   ClickZipBtn.FileNamesToZip = [];
+  var reader = [];
   // files is a FileList of File objects
   var sFileList = "<input type='button' id='ZipButton' value='Zip' style='float: right;' />";
   for (var i = 0, f; f = files[i]; i++) {
     ClickZipBtn.FileNamesToZip[i] = escape(f.name);
-    sFileList += '- <b>' + escape(f.name) + '</b><br>';
+    reader[i] = new FileReader();
+
+    reader[i].onload = function(event) {
+      ClickZipBtn.FilesToZip[i] = event.target.result;
+      alertify.alert('File: ' + i);
+      //document.getElementById("ZipFile" + i).style.color = 'black';
+    };
+
+    reader[i].onerror = function(event) {
+      alertify.alert("File could not be read! Code " + event.target.error.code);
+    };
+    reader[i].readAsArrayBuffer(files[i]);
+
+    sFileList += "<p style='color: red;' id='ZipFile" + i + "'>- <b>" + escape(f.name) + "</b></p>";
   }
   document.getElementById('ZipList').innerHTML = sFileList;
   document.getElementById('ZipButton').addEventListener('click', ClickZipBtn, false);
@@ -473,7 +488,7 @@ function handleFileSelect(evt) {
 function ClickZipBtn() {
  var zip = new JSZip();
  for (var i = 0; i < ClickZipBtn.FileNamesToZip.length; i++) {
-  zip.file(ClickZipBtn.FileNamesToZip[1]);
+  zip.file(ClickZipBtn.FileNamesToZip[i], ClickZipBtn.FilesToZip[1]);
  }
 
  var content = zip.generate({type:"blob"});
