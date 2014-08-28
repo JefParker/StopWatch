@@ -461,34 +461,38 @@ function handleFileSelect(evt) {
   var files = evt.target.files; // FileList object
   ClickZipBtn.FilesToZip = [];
   ClickZipBtn.FileNamesToZip = [];
-  var reader = [];
-  // files is a FileList of File objects
+  ClickZipBtn.Files = [];
   var sFileList = "<input type='button' id='ZipButton' value='Zip' style='float: right;' />";
-  for (var i = 0, f; f = files[i]; i++) {
-    ClickZipBtn.FileNamesToZip[i] = escape(f.name);
-    reader[i] = new FileReader();
-
-    reader[i].onload = function(event) {
-      ClickZipBtn.FilesToZip[i] = event.target.result;
-      alertify.alert('File: ' + i);
-      //document.getElementById("ZipFile" + i).style.color = 'black';
-    };
-
-    reader[i].onerror = function(event) {
-      alertify.alert("File could not be read! Code " + event.target.error.code);
-    };
-    reader[i].readAsArrayBuffer(files[i]);
-
-    sFileList += "<p style='color: red;' id='ZipFile" + i + "'>- <b>" + escape(f.name) + "</b></p>";
+  for (var j = 0; j < files.length; j++) {
+    ClickZipBtn.Files[j] = {};
+    ClickZipBtn.Files[j].FileObj = files[j];
+    ClickZipBtn.Files[j].Num = escape(j);
+    sFileList += "<p style='color: red;' id='ZipFile" + j + "'>" + (j+1) + ". <b>" + escape(files[j].name) + "</b></p>";
   }
   document.getElementById('ZipList').innerHTML = sFileList;
+
+  for (var i = 0; i < files.length; i++) {
+    LoadAFile(i);
+  }
   document.getElementById('ZipButton').addEventListener('click', ClickZipBtn, false);
+}
+
+function LoadAFile(nEntry) {
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    ClickZipBtn.Files[nEntry].Data = event.target.result;
+    document.getElementById("ZipFile" + nEntry).style.color = 'black';
+  };
+  reader.onerror = function(event) {
+    alertify.alert("File could not be read! Code " + event.target.error.code);
+  };
+  reader.readAsArrayBuffer(ClickZipBtn.Files[nEntry].FileObj);
 }
 
 function ClickZipBtn() {
  var zip = new JSZip();
- for (var i = 0; i < ClickZipBtn.FileNamesToZip.length; i++) {
-  zip.file(ClickZipBtn.FileNamesToZip[i], ClickZipBtn.FilesToZip[1]);
+ for (var i = 0; i < ClickZipBtn.Files.length; i++) {
+  zip.file(ClickZipBtn.Files[i].FileObj.name, ClickZipBtn.Files[i].Data);
  }
 
  var content = zip.generate({type:"blob"});
