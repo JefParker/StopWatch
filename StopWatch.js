@@ -1,7 +1,8 @@
 // JavaScript Document
 
 $(document).delegate('#Home', 'pageinit', function() {
-  document.getElementById("Copyright").innerHTML = MakeLogo("Stop", "Watch", true, true) + "<br>&copy; " + YearInRomanNumerals() + " The Inchoate Company";
+  document.getElementById("HomeLogo").innerHTML = MakeLogo("Stop", "Watch", true, true);
+  document.getElementById("Copyright").innerHTML = "&copy; " + YearInRomanNumerals() + " The Inchoate Company";
  $("#Copyright").bind("click", function(event, ui) {
   $.mobile.changePage( "#Inchoate", {role: "page", transition: 'flip'} );
  });
@@ -129,7 +130,7 @@ function MakeLogo(sFirst, sLast, bCentered, bImage) {
   var nColor = getRandomInt (0, aColors.length-1);
   var sLogo = "";
   if (bImage)
-    sLogo += "<p align='center'><a href='javascript:ShowStopWatch()'><img src='/assets/StopWatch128.png'></a></p>";
+    sLogo += "<p align='center'><img src='/assets/StopWatch128.png'></p>";
   if (bCentered)
     sLogo += "<div class='CopyHeadline' style='color: gray; line-height: 100%;";
   else
