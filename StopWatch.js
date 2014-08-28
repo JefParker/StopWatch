@@ -468,7 +468,7 @@ function handleFileSelect(evt) {
     ClickZipBtn.Files[j] = {};
     ClickZipBtn.Files[j].FileObj = files[j];
     ClickZipBtn.Files[j].Num = escape(j);
-    sFileList += "<p style='color: red;' id='ZipFile" + j + "'>" + (j+1) + ". <b>" + escape(files[j].name) + "</b></p>";
+    sFileList += "<span style='color: red;' id='ZipFile" + j + "'>" + (j+1) + ". <b>" + escape(files[j].name) + "</b></span><br>";
   }
   document.getElementById('ZipList').innerHTML = sFileList;
 
