@@ -149,3 +149,27 @@ margin: 0 0 0 0;
   -webkit-app-region: drag;
 }
 
+.ZipList {
+  font-size: 80%;
+  text-align: left;
+  width: 100%;
+  background-color: #FAEBD7;
+  min-height: 200px;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  color: #555555;
+-webkit-box-shadow:5px 5px 5px #CACACA;
+   -moz-box-shadow:5px 5px 5px #CACACA;
+        box-shadow:5px 5px 5px #CACACA;
+/*border-radius*/
+-webkit-border-radius:5px;
+   -moz-border-radius:5px;
+        border-radius:5px;
+}
+
+.ZipList:hover {
+	transition: 0.6s;
+	-webkit-box-shadow:7px 7px 7px #AAAAAA;
+  -moz-box-shadow:7px 7px 7px #AAAAAA;
+  box-shadow:7px 7px 7px #AAAAAA;
+}
+

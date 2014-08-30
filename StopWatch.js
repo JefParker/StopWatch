@@ -77,6 +77,9 @@ $(document).delegate('#Inchoate', 'pageinit', function() {
 
 $(document).delegate('#SimpleZip', 'pageinit', function() {
  document.getElementById('ZipFiles').addEventListener('change', handleFileSelect, false);
+ var dropZone = document.getElementById('ZipList');
+ dropZone.addEventListener('dragover', handleDragOver, false);
+ dropZone.addEventListener('drop', handleFileSelectDrop, false);
  document.getElementById("SimpleZipLogo").innerHTML = MakeLogo("Simple", "Zip", false, false);
  $("#SimpleZipLogo").bind("click", function(event, ui) {
   $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
@@ -476,6 +479,34 @@ function handleFileSelect(evt) {
     LoadAFile(i);
   }
   document.getElementById('ZipButton').addEventListener('click', ClickZipBtn, false);
+}
+
+function handleDragOver(evt) {
+ evt.stopPropagation();
+ evt.preventDefault();
+ evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+}
+
+function handleFileSelectDrop(evt) {
+ evt.stopPropagation();
+ evt.preventDefault();
+ var files = evt.dataTransfer.files; // FileList object
+ ClickZipBtn.FilesToZip = [];
+ ClickZipBtn.FileNamesToZip = [];
+ ClickZipBtn.Files = [];
+ var sFileList = "<input type='button' id='ZipButton' value='Zip' style='float: right;' />";
+ for (var j = 0; j < files.length; j++) {
+  ClickZipBtn.Files[j] = {};
+  ClickZipBtn.Files[j].FileObj = files[j];
+  ClickZipBtn.Files[j].Num = escape(j);
+  sFileList += "<span style='color: red;' id='ZipFile" + j + "'>" + (j+1) + ". <b>" + escape(files[j].name) + "</b></span><br>";
+ }
+ document.getElementById('ZipList').innerHTML = sFileList;
+
+ for (var i = 0; i < files.length; i++) {
+  LoadAFile(i);
+ }
+ document.getElementById('ZipButton').addEventListener('click', ClickZipBtn, false);
 }
 
 function LoadAFile(nEntry) {
