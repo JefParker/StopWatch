@@ -9,7 +9,6 @@
   "permissions": [
     "unlimitedStorage",
     "fileSystem",
-    "alwaysOnTopWindows",
     "identity"
   ],
   "icons": {
