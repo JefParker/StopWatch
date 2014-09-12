@@ -19,7 +19,7 @@ chrome.app.runtime.onLaunched.addListener(function() {
       left: Math.round((screenWidth-width)/2),
       top: Math.round((screenHeight-height)/2)
     },
-    maxWidth: 200,
-    maxHeight: 300
+    maxWidth: 250,
+    maxHeight: 350
   });
 });
