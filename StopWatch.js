@@ -89,6 +89,19 @@ $(document).delegate('#SimpleZip', 'pageinit', function() {
  });
 });
 
+$(document).delegate('#MLBMagicNumber', 'pageinit', function() {
+ document.getElementById("MLBMagicNumberLogo").innerHTML = MakeLogo("MLB", "Magic#", false, false);
+ $("#MLBMagicNumberLogo").bind("click", function(event, ui) {
+  $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
+ });
+ $("#MLBMagicNumberMenu").bind("click", function(event, ui) {
+  $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
+ });
+ document.getElementById("LostNum").addEventListener('change', CalculateMagicNumber, false);
+ document.getElementById("DivWinNum").addEventListener('change', CalculateMagicNumber, false);
+});
+
+
 // General Functions
 
 function shuffle(o) {
@@ -536,3 +549,12 @@ function ClickZipBtn() {
  document.getElementById('ZipFiles').value = '';
 }
 // End of Zip functions
+
+// Start of MLB Magic Number functions
+function CalculateMagicNumber() {
+  var nLoss = Number(document.getElementById('LostNum').value);
+  var nDivWinNum = Number(document.getElementById('DivWinNum').value);
+  if (nLoss && nDivWinNum)
+    document.getElementById('MagicNumber').innerHTML = 163 - (nLoss + nDivWinNum);
+}
+// End of MLB Magic Number functions

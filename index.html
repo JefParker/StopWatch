@@ -20,7 +20,10 @@
  <!-- Start of home page -->
  <div data-role='page' id='Home' data-theme='D' data-title='Welcome - StopWatch'>
    <p class='Copy' style='font-size: 80%; text-align: center;'><a href='#StpWatch' data-transition='flip'>StopWatch</a><br>
-    <a href='#CPI' data-transition='flip'>CPI</a> &nbsp;<a href='#FV' data-transition='flip'>Future-Value</a> &nbsp;<a href='#Tip' data-transition='flip'>Tip</a><br>
+    <a href='#CPI' data-transition='flip'>CPI</a>
+    &nbsp;<a href='#FV' data-transition='flip'>Future-Value</a>
+    &nbsp;<a href='#Tip' data-transition='flip'>Tip</a><br>
+    <a href='#MLBMagicNumber' data-transition='flip'>MLB Magic #</a><br>
     <a href='#SimpleZip' data-transition='flip'>Simple Zip</a>
     </p>
    <div id='HomeLogo' class='Copy' style='font-size: 75%; text-align: center;'></div>
@@ -150,6 +153,19 @@
 <div id="ZipList" class='ZipList' style=''><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Or drop files here.)</div>
 </div> <!-- / SimpleZipControls -->
 </div><!-- / SimpleZip page -->
+
+<!-- Start of MLB Magic Number page -->
+<div data-role='page' id='MLBMagicNumber' data-theme='D' data-title='Inchoate - MLB Magic Number'>
+<div id="SimpleZipControls" style="width: 90%; margin-right: auto; margin-left: auto; text-align: center;">
+<div id='MLBMagicNumberMenu' class='Copy' style='font-size: 80%; text-align: right; float: right; margin-top: 3px;'>Menu</div>
+<div id='MLBMagicNumberLogo' style='text-align: left; margin-top: 0px; margin-top: 3px; font-size: 75%;'></div>
+<br>
+<p>2nd place team's losses:  <input type='num' id='LostNum' placeholder='0' style='width: 25px; text-align: center;' OnBlur="CalculateMagicNumber()" OnChange='CalculateMagicNumber()' OnInput='CalculateMagicNumber()' OnKeyUp='CalculateMagicNumber()' OnPaste='CalculateMagicNumber()' /></p>
+<p>Division leader's wins: <input type='num' id='DivWinNum' placeholder='0' style='width: 25px; text-align: center;' OnBlur="CalculateMagicNumber()" OnChange='CalculateMagicNumber()' OnInput='CalculateMagicNumber()' OnKeyUp='CalculateMagicNumber()' OnPaste='CalculateMagicNumber()' /></p>
+<p>The Elimination Number for the 2nd place team is the Magic Number for the 1st place team.  That number is...</p>
+<p id='MagicNumber' style='font-size: 200%; color: blue;'>?</p>
+</div> <!-- / MLB Magic Number Controls -->
+</div><!-- / MLB Magic Number page -->
 
 
 </body>
