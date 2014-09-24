@@ -23,7 +23,7 @@
     <a href='#CPI' data-transition='flip'>CPI</a>
     &nbsp;<a href='#FV' data-transition='flip'>Future-Value</a>
     &nbsp;<a href='#Tip' data-transition='flip'>Tip</a><br>
-    <a href='#MLBMagicNumber' data-transition='flip'>MLB Magic #</a><br>
+    <a href='#MagicNumber' data-transition='flip'>Magic #</a><br>
     <a href='#SimpleZip' data-transition='flip'>Simple Zip</a>
     </p>
    <div id='HomeLogo' class='Copy' style='font-size: 75%; text-align: center;'></div>
@@ -135,7 +135,7 @@
 <div id='InchoateMenu' class='Copy' style='font-size: 80%; text-align: right; float: right; margin-top: 3px;'>Menu</div>
 <div id='InchoateLogo' style='text-align: left; margin-top: 0px; margin-top: 3px; font-size: 75%;'></div>
 <div class='Copy' style='font-size: 80%; text-align: center; margin-top: 50px;'>
-<p>StopWatch, Version 0.0.0.7</p>
+<p>StopWatch, Version 0.0.0.8</p>
 <p><a href='https://github.com/fabien-d/alertify.js/wiki' target='_blank'>Alertify</a> &copy; Fabien Doiron.  MIT License.
 <a href='https://github.com/eligrey/FileSaver.js' target='_blank'>FileSaver</a> &copy; 2014 Eli Grey.  MIT License.
 <a href='http://stuk.github.io/jszip/' target='_blank'>JSZip</a> &copy; 2009-2014 Stuart Knightley, David Duponchel, Franz Buchinger, António Afonso.  MIT License.
@@ -155,15 +155,20 @@
 </div><!-- / SimpleZip page -->
 
 <!-- Start of MLB Magic Number page -->
-<div data-role='page' id='MLBMagicNumber' data-theme='D' data-title='Inchoate - MLB Magic Number'>
+<div data-role='page' id='MagicNumber' data-theme='D' data-title='Inchoate - Magic Number'>
 <div id="SimpleZipControls" style="width: 90%; margin-right: auto; margin-left: auto; text-align: center;">
-<div id='MLBMagicNumberMenu' class='Copy' style='font-size: 80%; text-align: right; float: right; margin-top: 3px;'>Menu</div>
-<div id='MLBMagicNumberLogo' style='text-align: left; margin-top: 0px; margin-top: 3px; font-size: 75%;'></div>
-<br>
+<div id='MagicNumberMenu' class='Copy' style='font-size: 80%; text-align: right; float: right; margin-top: 3px;'>Menu</div>
+<div id='MagicNumberLogo' style='text-align: left; margin-top: 0px; margin-top: 3px; font-size: 75%;'></div>
+<select id='MNSport' data-mini='true' OnChange='CalculateMagicNumber()'>
+<option value='162'>MLB (regular)</option>
+<option value='82'>NBA (regular)</option>
+<option value='16'>NFL (regular)</option>
+<option value='82'>NHL (regular)</option>
+</select>
 <p>2nd place team's losses:  <input type='num' id='LostNum' placeholder='0' style='width: 25px; text-align: center;' OnBlur="CalculateMagicNumber()" OnChange='CalculateMagicNumber()' OnInput='CalculateMagicNumber()' OnKeyUp='CalculateMagicNumber()' OnPaste='CalculateMagicNumber()' /></p>
-<p>Division leader's wins: <input type='num' id='DivWinNum' placeholder='0' style='width: 25px; text-align: center;' OnBlur="CalculateMagicNumber()" OnChange='CalculateMagicNumber()' OnInput='CalculateMagicNumber()' OnKeyUp='CalculateMagicNumber()' OnPaste='CalculateMagicNumber()' /></p>
-<p>The Elimination Number for the 2nd place team is the <a href='http://www.wikiwand.com/en/Magic_number_(sports)' target='_blank'>Magic Number</a> for the 1st place team.  That number is...</p>
-<p id='MagicNumber' style='font-size: 200%; color: blue;'>?</p>
+<p>1st place team's wins: <input type='num' id='DivWinNum' placeholder='0' style='width: 25px; text-align: center;' OnBlur="CalculateMagicNumber()" OnChange='CalculateMagicNumber()' OnInput='CalculateMagicNumber()' OnKeyUp='CalculateMagicNumber()' OnPaste='CalculateMagicNumber()' /></p>
+<p>The elimination number (tragic number) for the 2nd place team is the <a href='http://www.wikiwand.com/en/Magic_number_(sports)' target='_blank'>magic number</a> for the 1st place team.  That number is...</p>
+<p id='MagicNum' style='font-size: 250%; color: blue;'>?</p>
 </div> <!-- / MLB Magic Number Controls -->
 </div><!-- / MLB Magic Number page -->
 

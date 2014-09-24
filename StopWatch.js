@@ -89,12 +89,12 @@ $(document).delegate('#SimpleZip', 'pageinit', function() {
  });
 });
 
-$(document).delegate('#MLBMagicNumber', 'pageinit', function() {
- document.getElementById("MLBMagicNumberLogo").innerHTML = MakeLogo("MLB", "Magic#", false, false);
- $("#MLBMagicNumberLogo").bind("click", function(event, ui) {
+$(document).delegate('#MagicNumber', 'pageinit', function() {
+ document.getElementById("MagicNumberLogo").innerHTML = MakeLogo("Magic", "#", false, false);
+ $("#MagicNumberLogo").bind("click", function(event, ui) {
   $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
  });
- $("#MLBMagicNumberMenu").bind("click", function(event, ui) {
+ $("#MagicNumberMenu").bind("click", function(event, ui) {
   $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
  });
  document.getElementById("LostNum").addEventListener('change', CalculateMagicNumber, false);
@@ -554,7 +554,8 @@ function ClickZipBtn() {
 function CalculateMagicNumber() {
   var nLoss = Number(document.getElementById('LostNum').value);
   var nDivWinNum = Number(document.getElementById('DivWinNum').value);
+  var nLeagueGames = Number(document.getElementById('MNSport').value);
   if (nLoss && nDivWinNum)
-    document.getElementById('MagicNumber').innerHTML = 163 - (nLoss + nDivWinNum);
+    document.getElementById('MagicNum').innerHTML = (nLeagueGames + 1) - (nLoss + nDivWinNum);
 }
 // End of MLB Magic Number functions
