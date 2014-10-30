@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "StopWatch",
   "short_name": "StopWatch",
-  "version": "0.0.0.8",
+  "version": "0.0.0.9",
   "minimum_chrome_version": "23",
   "description": "StopWatch - and other handy tools",
   "offline_enabled": true,

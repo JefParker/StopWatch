@@ -101,6 +101,16 @@ $(document).delegate('#MagicNumber', 'pageinit', function() {
  document.getElementById("DivWinNum").addEventListener('change', CalculateMagicNumber, false);
 });
 
+$(document).delegate('#DirCopy', 'pageinit', function() {
+ document.getElementById("DirCopyLogo").innerHTML = MakeLogo("Folder", "Copy", false, false);
+ $("#DirCopyLogo").bind("click", function(event, ui) {
+  $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
+ });
+ $("#DirCopyMenu").bind("click", function(event, ui) {
+  $.mobile.changePage( "#Home", {role: "page", transition: 'flip'} );
+ });
+});
+
 
 // General Functions
 
@@ -296,7 +306,7 @@ function UpdateBP() {
   "1.029527559", "1.022944551", "1.015576324", "1.022085890", "1.033613445",
   "1.028455285", "1.015810277", "1.022790439", "1.026630435", "1.033880360",
   "1.032258065", "1.028482143", "1.038395501", "0.996442223", "1.016402765", // 2005
-  "1.031565286", "1.020694499", "1.014647595", "1.022720931" // 2010
+  "1.031565286", "1.020694499", "1.014647595", "1.021780844" // 2010
   );
 
   var nYearOffset = nThisYear - aCPIYears.length;
@@ -559,3 +569,17 @@ function CalculateMagicNumber() {
     document.getElementById('MagicNum').innerHTML = (nLeagueGames + 1) - (nLoss + nDivWinNum);
 }
 // End of MLB Magic Number functions
+
+// STart of Copy Dir
+function PickFromDir() {
+  alertify.alert('From!');
+}
+
+function PickToDir() {
+  alertify.alert('To!');
+}
+
+function CopyDirContents() {
+  alertify.alert('Copy!');
+}
+// End of Copy Dir

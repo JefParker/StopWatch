@@ -23,8 +23,9 @@
     <a href='#CPI' data-transition='flip'>CPI</a>
     &nbsp;<a href='#FV' data-transition='flip'>Future-Value</a>
     &nbsp;<a href='#Tip' data-transition='flip'>Tip</a><br>
-    <a href='#MagicNumber' data-transition='flip'>Magic #</a><br>
-    <a href='#SimpleZip' data-transition='flip'>Simple Zip</a>
+    <a href='#MagicNumber' data-transition='flip'>Magic #</a>
+    <a href='#SimpleZip' data-transition='flip'>Simple Zip</a><br>
+    <a href='#DirCopy' data-transition='flip'>Folder Copier</a>
     </p>
    <div id='HomeLogo' class='Copy' style='font-size: 75%; text-align: center;'></div>
    <div id='Copyright' class='Copy' style='font-size: 75%; text-align: center;'></div>
@@ -135,7 +136,7 @@
 <div id='InchoateMenu' class='Copy' style='font-size: 80%; text-align: right; float: right; margin-top: 3px;'>Menu</div>
 <div id='InchoateLogo' style='text-align: left; margin-top: 0px; margin-top: 3px; font-size: 75%;'></div>
 <div class='Copy' style='font-size: 80%; text-align: center; margin-top: 50px;'>
-<p>StopWatch, Version 0.0.0.8</p>
+<p><a href='https://chrome.google.com/webstore/detail/stopwatch/lifnoadagfppcljadelgkjddidcnjbcc' target='_blank'>StopWatch</a>, Version 0.0.0.9</p>
 <p><a href='https://github.com/fabien-d/alertify.js/wiki' target='_blank'>Alertify</a> &copy; Fabien Doiron.  MIT License.
 <a href='https://github.com/eligrey/FileSaver.js' target='_blank'>FileSaver</a> &copy; 2014 Eli Grey.  MIT License.
 <a href='http://stuk.github.io/jszip/' target='_blank'>JSZip</a> &copy; 2009-2014 Stuart Knightley, David Duponchel, Franz Buchinger, António Afonso.  MIT License.
@@ -172,6 +173,18 @@
 </div> <!-- / MLB Magic Number Controls -->
 </div><!-- / MLB Magic Number page -->
 
+<!-- Start of Directory Copier page -->
+<div data-role='page' id='DirCopy' data-theme='D' data-title='Inchoate - Directory Copier'>
+<div id="DirCopyControls" style="width: 90%; margin-right: auto; margin-left: auto; text-align: center;">
+<div id='DirCopyMenu' class='Copy' style='font-size: 80%; text-align: right; float: right; margin-top: 3px;'>Menu</div>
+<div id='DirCopyLogo' style='text-align: left; margin-top: 0px; margin-top: 3px; font-size: 75%;'></div>
+
+<p><input type="file" id="FromDir" name="FromFiles[]" webkitdirectory directory multiple class='Copy' style='font-size: 80%;' /></p>
+<p><input type="file" id="ToDir" name="ToFiles[]" webkitdirectory directory multiple class='Copy' style='font-size: 80%;' /></p>
+<p><input type='button' value='Copy Contents' onclick='CopyDirContents()' /></p>
+
+</div> <!-- / Directory Copier Controls -->
+</div><!-- / Directory Copier page -->
 
 </body>
 
